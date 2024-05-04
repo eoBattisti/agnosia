@@ -6,14 +6,13 @@ const DASH_SPEED = 400.0
 const COUNTER_DASH_SPEED = 800.0
 const JUMP_VELOCITY = -350
 const WALL_PUSHBACK = 250
-const WALL_SLIDE_GRAVITY = 100
+const WALL_SLIDE_GRAVITY = 50
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var dash_timer = $DashTimer
 @onready var jump_timer = $JumpTimer
-@onready var slide_timer = $SlideTimer
 @onready var animated_sprite = $AnimatedSprite2D
 
 var can_dash = true
@@ -71,7 +70,9 @@ func _physics_process(delta):
 	handle_wall_slide(delta)
 
 func handle_jump(delta):
-	velocity.y += gravity * delta
+
+	if !is_on_floor():
+		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and can_jump:
@@ -81,39 +82,32 @@ func handle_jump(delta):
 		elif is_on_wall() and Input.is_action_pressed("move_right") and can_jump:
 			can_jump = false
 			is_jumping = true
+			jump_timer.start()
 			velocity.y = JUMP_VELOCITY
 			velocity.x = -WALL_PUSHBACK
 		elif is_on_wall() and Input.is_action_pressed("move_left") and can_jump:
 			can_jump = false
 			is_jumping = true
+			jump_timer.start()
 			velocity.y = JUMP_VELOCITY
 			velocity.x = WALL_PUSHBACK
 
 func handle_wall_slide(delta):
 	if is_on_wall() and !is_on_floor():
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and can_wall_slide:
 			is_wall_sliding = true
 		else:
 			is_wall_sliding = false
 	else:
 		is_wall_sliding = false
 
-	if is_wall_sliding and can_wall_slide:
-		slide_timer.start()
-		jump_timer.start()
-		is_jumping = true
-		can_wall_slide = false
-		is_wall_sliding = true
+	if is_wall_sliding:
 		velocity.y += (WALL_SLIDE_GRAVITY * delta)
 		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
 
 func _on_dash_timer_timeout():
 	can_dash = true
 	is_dashing = false
-
-func _on_slide_timer_timeout():
-	is_wall_sliding = false
-	can_wall_slide = true
 
 func _on_jump_timer_timeout():
 	is_jumping = false
