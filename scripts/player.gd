@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const DASH_SPEED = 400.0
 const COUNTER_DASH_SPEED = 800.0
@@ -15,14 +14,22 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var jump_timer = $JumpTimer
 @onready var animated_sprite = $AnimatedSprite2D
 
+var max_health = 5
+var hurt = false
+
 var can_dash = true
 var is_dashing = false
 
 var can_jump = true
 var is_jumping = false
 
-var can_wall_slide = true
 var is_wall_sliding = false
+
+func _process(delta):
+	
+	if hurt:
+		animated_sprite.play("hurt")
+		hurt = false
 
 func _physics_process(delta):
 
@@ -94,7 +101,7 @@ func handle_jump(delta):
 
 func handle_wall_slide(delta):
 	if is_on_wall() and !is_on_floor():
-		if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and can_wall_slide:
+		if (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
 			is_wall_sliding = true
 		else:
 			is_wall_sliding = false
@@ -104,6 +111,14 @@ func handle_wall_slide(delta):
 	if is_wall_sliding:
 		velocity.y += (WALL_SLIDE_GRAVITY * delta)
 		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
+
+
+func handle_damage(damage):
+	max_health -= damage
+	hurt = true
+	if max_health <= 0:
+		get_tree().reload_current_scene()
+
 
 func _on_dash_timer_timeout():
 	can_dash = true
