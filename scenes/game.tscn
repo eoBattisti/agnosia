@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh1v8lh28mb2x"]
+[gd_scene load_steps=16 format=3 uid="uid://bh1v8lh28mb2x"]
 
 [ext_resource type="Texture2D" uid="uid://bxo2dqk0ws4yd" path="res://assets/sprites/ground_tileset.png" id="1_537dr"]
 [ext_resource type="PackedScene" uid="uid://do02vru1yvk4e" path="res://scenes/player.tscn" id="1_mfs54"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://g3gfioasa165" path="res://scenes/coin.tscn" id="4_cu8r3"]
 [ext_resource type="PackedScene" uid="uid://dql5wf4vm6q2x" path="res://scenes/killzone.tscn" id="5_fii0c"]
 [ext_resource type="PackedScene" uid="uid://cd26p8oeb2cbu" path="res://scenes/slime.tscn" id="6_6t3mv"]
+[ext_resource type="PackedScene" uid="uid://cqo1oacb460bo" path="res://scenes/npc.tscn" id="8_yqhpb"]
+[ext_resource type="PackedScene" uid="uid://d3bs88wl07il6" path="res://scenes/fruit.tscn" id="9_vpwwq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in8ju"]
 texture = ExtResource("1_537dr")
@@ -129,3 +131,9 @@ autoplay = "move"
 
 [node name="Slime" parent="." instance=ExtResource("6_6t3mv")]
 position = Vector2(215, 209)
+
+[node name="Npc" parent="." instance=ExtResource("8_yqhpb")]
+position = Vector2(123, 191)
+
+[node name="Fruit" parent="." instance=ExtResource("9_vpwwq")]
+position = Vector2(-67, 202)
