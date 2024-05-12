@@ -17,10 +17,6 @@ func _process(delta):
 		animated_sprite.flip_h = true
 	if ray_cast_left.is_colliding():
 		direction = 1
-		animated_sprite.flip_h = false	
+		animated_sprite.flip_h = false
 
 	position.x += direction * SPEED * delta
-
-
-func _on_hitbox_body_entered(body):
-	body.handle_damage(damage)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd26p8oeb2cbu"]
+[gd_scene load_steps=11 format=3 uid="uid://cd26p8oeb2cbu"]
 
 [ext_resource type="Texture2D" uid="uid://bcusldysg077v" path="res://assets/sprites/slime_green.png" id="1_f6xwo"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ustuc"]
-[ext_resource type="PackedScene" uid="uid://qs2mgqkj5kvg" path="res://scenes/hitbox.tscn" id="3_n8ylk"]
+[ext_resource type="PackedScene" uid="uid://dfyin3u4fphgu" path="res://scenes/hitbox_component.tscn" id="4_klr71"]
+[ext_resource type="PackedScene" uid="uid://bsk8ktwt7tfmo" path="res://scenes/health_component.tscn" id="5_qd8id"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tbwn"]
 atlas = ExtResource("1_f6xwo")
@@ -40,7 +41,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh4pt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30nfx"]
 size = Vector2(12, 13)
 
 [node name="Slime" type="Node2D"]
@@ -61,11 +62,14 @@ target_position = Vector2(12, 0)
 position = Vector2(0, 5)
 target_position = Vector2(-12, 0)
 
-[node name="Hitbox" parent="." instance=ExtResource("3_n8ylk")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_klr71")]
 collision_mask = 2
+health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_qh4pt")
+shape = SubResource("RectangleShape2D_30nfx")
+debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[node name="HealthComponent" parent="." instance=ExtResource("5_qd8id")]
+MAX_HEALTH = 1.0
