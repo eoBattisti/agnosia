@@ -199,6 +199,7 @@ dash_state = NodePath("../DashState")
 fall_state = NodePath("../FallState")
 jump_state = NodePath("../JumpState")
 move_state = NodePath("../MoveState")
+move_speed = 100.0
 
 [node name="MoveState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("dash_state", "fall_state", "idle_state", "jump_state")]
 script = ExtResource("5_3tk5d")
@@ -207,7 +208,7 @@ fall_state = NodePath("../FallState")
 idle_state = NodePath("../IdleState")
 jump_state = NodePath("../JumpState")
 animation_name = "run"
-move_speed = 200.0
+move_speed = 100.0
 
 [node name="FallState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("idle_state", "move_state", "jump_state")]
 script = ExtResource("6_uxnp6")
@@ -216,7 +217,7 @@ move_state = NodePath("../MoveState")
 jump_state = NodePath("../JumpState")
 wall_friction = 50.0
 animation_name = "idle"
-move_speed = 200.0
+move_speed = 100.0
 
 [node name="JumpState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "move_state", "jump_state")]
 script = ExtResource("7_xor5r")
