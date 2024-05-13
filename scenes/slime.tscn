@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd26p8oeb2cbu"]
+[gd_scene load_steps=17 format=3 uid="uid://cd26p8oeb2cbu"]
 
 [ext_resource type="Texture2D" uid="uid://bcusldysg077v" path="res://assets/sprites/slime_green.png" id="1_f6xwo"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ustuc"]
 [ext_resource type="PackedScene" uid="uid://dfyin3u4fphgu" path="res://scenes/hitbox_component.tscn" id="4_klr71"]
 [ext_resource type="PackedScene" uid="uid://bsk8ktwt7tfmo" path="res://scenes/health_component.tscn" id="5_qd8id"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_wuda5"]
+[ext_resource type="Script" path="res://scripts/state_machine/enemy_states/idle.gd" id="6_bboub"]
+[ext_resource type="Script" path="res://scripts/components/enemy_move_component.gd" id="7_ddeqj"]
+[ext_resource type="Script" path="res://scripts/state_machine/enemy_states/move.gd" id="7_n6plv"]
+[ext_resource type="Script" path="res://scripts/state_machine/enemy_states/wander.gd" id="8_k7exv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tbwn"]
 atlas = ExtResource("1_f6xwo")
@@ -44,25 +49,41 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30nfx"]
 size = Vector2(12, 13)
 
-[node name="Slime" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgk1o"]
+size = Vector2(12, 13)
+
+[node name="Slime" type="CharacterBody2D" groups=["Hit"]]
 position = Vector2(0, -12)
+collision_mask = 3
 script = ExtResource("1_ustuc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_pb6c6")
 autoplay = "default"
 frame = 3
 frame_progress = 0.629232
 
+[node name="RayCastDownRight" type="RayCast2D" parent="."]
+position = Vector2(7, -1)
+target_position = Vector2(0, 19)
+
+[node name="RayCastDownLeft" type="RayCast2D" parent="."]
+position = Vector2(-7, -1)
+target_position = Vector2(0, 19)
+
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
-target_position = Vector2(12, 0)
+target_position = Vector2(37, 0)
+collision_mask = 2
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
-target_position = Vector2(-12, 0)
+target_position = Vector2(-30, 0)
+collision_mask = 2
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_klr71")]
+visible = false
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
 
@@ -72,4 +93,39 @@ shape = SubResource("RectangleShape2D_30nfx")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_qd8id")]
-MAX_HEALTH = 1.0
+MAX_HEALTH = 2.0
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("5_wuda5")
+starting_state = NodePath("EnemyIdleState")
+
+[node name="EnemyIdleState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("move_state", "wander_state")]
+script = ExtResource("6_bboub")
+move_state = NodePath("../EnemyMoveState")
+wander_state = NodePath("../EnemyWanderState")
+animation_name = "default"
+move_speed = 50.0
+
+[node name="EnemyMoveState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("7_n6plv")
+idle_state = NodePath("../EnemyIdleState")
+animation_name = "default"
+move_speed = 50.0
+
+[node name="EnemyWanderState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("8_k7exv")
+idle_state = NodePath("../EnemyIdleState")
+animation_name = "default"
+move_speed = 50.0
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "raycast_right", "raycast_left", "raycast_down_left", "raycast_down_right")]
+script = ExtResource("7_ddeqj")
+enemy = NodePath("..")
+raycast_right = NodePath("../RayCastRight")
+raycast_left = NodePath("../RayCastLeft")
+raycast_down_left = NodePath("../RayCastDownLeft")
+raycast_down_right = NodePath("../RayCastDownRight")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_bgk1o")

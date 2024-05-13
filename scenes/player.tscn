@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://do02vru1yvk4e"]
+[gd_scene load_steps=30 format=3 uid="uid://do02vru1yvk4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gkaw5"]
 [ext_resource type="Texture2D" uid="uid://yu8uu01vbd3b" path="res://assets/sprites/characters.png" id="3_6plnn"]
@@ -14,14 +14,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine/attack_states/idle.gd" id="11_e2iet"]
 [ext_resource type="PackedScene" uid="uid://bsk8ktwt7tfmo" path="res://scenes/health_component.tscn" id="13_ecdgj"]
 [ext_resource type="PackedScene" uid="uid://dfyin3u4fphgu" path="res://scenes/hitbox_component.tscn" id="14_ueg6c"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2mjan"]
-atlas = ExtResource("3_6plnn")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_koqbn"]
-atlas = ExtResource("3_6plnn")
-region = Rect2(32, 32, 32, 32)
+[ext_resource type="PackedScene" uid="uid://qmjrnchw3hcr" path="res://scenes/attack_hitbox.tscn" id="15_5x2qa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dv30"]
 atlas = ExtResource("3_6plnn")
@@ -34,12 +27,6 @@ region = Rect2(32, 64, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggbts"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2mjan")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_koqbn")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8dv30")
 }, {
@@ -177,19 +164,7 @@ size = Vector2(11, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktpl"]
 size = Vector2(11, 15)
 
-[sub_resource type="GDScript" id="GDScript_vaava"]
-script/source = "extends Area2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_10be2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ff1f"]
 size = Vector2(10, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -201,7 +176,7 @@ script = ExtResource("1_gkaw5")
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_ggbts")
 animation = &"attacking"
-frame = 3
+frame = 1
 
 [node name="movement_animations" type="AnimatedSprite2D" parent="." groups=["player"]]
 position = Vector2(1, -5)
@@ -264,9 +239,10 @@ animation_name = "run"
 script = ExtResource("3_lxx7u")
 starting_state = NodePath("AttackIdleState")
 
-[node name="AttackAttackingState" type="Node" parent="AttackStateMachine" node_paths=PackedStringArray("charging_state")]
+[node name="AttackAttackingState" type="Node" parent="AttackStateMachine" node_paths=PackedStringArray("charging_state", "hitbox")]
 script = ExtResource("9_pa7x8")
 charging_state = NodePath("../AttackChargingState")
+hitbox = NodePath("../../WeaponHitbox")
 animation_name = "attacking"
 
 [node name="AttackChargingState" type="Node" parent="AttackStateMachine" node_paths=PackedStringArray("idle_state")]
@@ -292,10 +268,10 @@ position = Vector2(0.5, -7.5)
 shape = SubResource("RectangleShape2D_1ktpl")
 debug_color = Color(0.996078, 0, 0.168627, 0.419608)
 
-[node name="WeaponHitbox" type="Area2D" parent="."]
-script = SubResource("GDScript_vaava")
+[node name="WeaponHitbox" parent="." instance=ExtResource("15_5x2qa")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponHitbox"]
 position = Vector2(12, -4)
-shape = SubResource("RectangleShape2D_10be2")
+shape = SubResource("RectangleShape2D_1ff1f")
 disabled = true
+debug_color = Color(0, 0.631373, 0.443137, 0.419608)
