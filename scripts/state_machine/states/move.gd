@@ -23,6 +23,11 @@ func process_physics(delta: float) -> State:
 		return idle_state
 
 	animations.flip_h = movement < 0
+	if animations.flip_h:
+		parent.weapon_hitbox.scale = Vector2(-1, 1)
+	else:
+		parent.weapon_hitbox.scale = Vector2(1, 1)
+
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	

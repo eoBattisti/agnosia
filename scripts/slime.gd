@@ -1,15 +1,14 @@
 extends CharacterBody2D
 class_name Enemy
 
-@export var MOVE_SPEED: float = 30
 @export var friendly: bool = true
+@export var can_move: bool = true
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var movement_state_machine = $MovementStateMachine
 @onready var move_component = $MoveComponent
-@onready var ray_cast_down = $RayCastDown
 
 
 func _ready() -> void:

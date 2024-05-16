@@ -14,6 +14,7 @@ func _detected_player_right() -> bool:
 		return false
 
 	if raycast_right.is_colliding() and raycast_right.get_collider() is Player:
+		
 		return true
 	return false
 
@@ -26,6 +27,7 @@ func _detected_player_left() -> bool:
 	return false
 
 func _detect_fall() -> bool:
+
 	if (!raycast_down_left.is_colliding()
 		or !raycast_down_right.is_colliding()):
 			return true

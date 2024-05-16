@@ -6,6 +6,8 @@ class_name Player
 @onready var movement_state_machine = $MovementStateMachine
 @onready var attack_state_machine = $AttackStateMachine
 @onready var move_component = $MoveComponent
+@onready var collision = $CollisionShape2D
+@onready var weapon_hitbox = $WeaponHitbox
 
 
 func _ready() -> void:
