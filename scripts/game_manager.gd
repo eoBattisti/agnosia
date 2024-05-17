@@ -20,7 +20,6 @@ func _ready():
 
 func add_point():
 	score += 1
-	print(score)
 
 func load_dialogs_file() -> Dictionary:
 	var file = FileAccess.open("res://assets/files/dialogs.json", FileAccess.READ)
