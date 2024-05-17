@@ -2,7 +2,7 @@ extends Node
 
 @onready var text_box_scene = preload("res://scenes/text_box/text_box.tscn")
 
-var dialog_lines: Array[String] = []
+var dialog_lines: Array = []
 var current_line_index = 0
 
 var text_box
@@ -13,7 +13,7 @@ var can_advance_line: bool = false
 
 signal dialog_finished()
 
-func start_dialog(position: Vector2, lines: Array[String]):
+func start_dialog(position: Vector2, lines: Array):
 	
 	if is_dialog_active:
 		return
