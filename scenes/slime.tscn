@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd26p8oeb2cbu"]
+[gd_scene load_steps=18 format=3 uid="uid://cd26p8oeb2cbu"]
 
 [ext_resource type="Texture2D" uid="uid://bcusldysg077v" path="res://assets/sprites/slime_green.png" id="1_f6xwo"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ustuc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/components/enemy_move_component.gd" id="7_ddeqj"]
 [ext_resource type="Script" path="res://scripts/state_machine/enemy_states/move.gd" id="7_n6plv"]
 [ext_resource type="Script" path="res://scripts/state_machine/enemy_states/wander.gd" id="8_k7exv"]
+[ext_resource type="PackedScene" uid="uid://c8xqril2724ic" path="res://scenes/healthbar/healthbar.tscn" id="10_f4exj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tbwn"]
 atlas = ExtResource("1_f6xwo")
@@ -129,3 +130,9 @@ raycast_down_right = NodePath("../RayCastDownRight")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_bgk1o")
+
+[node name="Healthbar" parent="." instance=ExtResource("10_f4exj")]
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 10.0
+offset_bottom = -4.0
