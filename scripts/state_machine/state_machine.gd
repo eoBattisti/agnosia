@@ -10,9 +10,10 @@ func init(
 	move_component
 ) -> void:
 	for child in get_children():
-		child.parent = parent
-		child.animations = animations
-		child.move_component = move_component
+		if child is State:
+			child.parent = parent
+			child.animations = animations
+			child.move_component = move_component
 
 	change_state(starting_state)
 

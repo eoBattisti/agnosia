@@ -5,9 +5,17 @@ class_name MoveState
 @export var fall_state: State
 @export var idle_state: State
 @export var jump_state: State
+@onready var dash_timer = $"../DashTimer"
+
+var can_dash: bool = true
+
+func enter() -> void:
+	super()
 
 func process_input(event: InputEvent) -> State:
-	if get_dash():
+	if get_dash() and can_dash:
+		can_dash = false
+		dash_timer.start()
 		return dash_state
 
 	return null
@@ -34,3 +42,7 @@ func process_physics(delta: float) -> State:
 	if !parent.is_on_floor():
 		return fall_state
 	return null
+
+
+func _on_dash_timer_timeout():
+	can_dash = true

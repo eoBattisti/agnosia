@@ -203,10 +203,14 @@ animation_name = "jump"
 [node name="DashState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("move_state", "fall_state", "idle_state", "jump_state")]
 script = ExtResource("8_ro7he")
 move_state = NodePath("../MoveState")
+time_dashing = 0.15
 fall_state = NodePath("../FallState")
 idle_state = NodePath("../IdleState")
 jump_state = NodePath("../JumpState")
 animation_name = "run"
+
+[node name="DashTimer" type="Timer" parent="MovementStateMachine"]
+one_shot = true
 
 [node name="AttackStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_lxx7u")
@@ -255,3 +259,5 @@ offset_left = -10.0
 offset_top = -20.0
 offset_right = 12.0
 offset_bottom = -18.0
+
+[connection signal="timeout" from="MovementStateMachine/DashTimer" to="MovementStateMachine/MoveState" method="_on_dash_timer_timeout"]
