@@ -5,9 +5,13 @@ class_name MoveState
 @export var fall_state: State
 @export var idle_state: State
 @export var jump_state: State
+@export var counter_dash_state: State
+
 @onready var dash_timer = $"../DashTimer"
+@onready var counter_dash_timer = $"../CounterDashTimer"
 
 var can_dash: bool = true
+var can_counter_dash: bool = true
 
 func enter() -> void:
 	super()
@@ -17,6 +21,11 @@ func process_input(event: InputEvent) -> State:
 		can_dash = false
 		dash_timer.start()
 		return dash_state
+	
+	if get_counter_dash() and can_counter_dash:
+		can_counter_dash = false
+		counter_dash_timer.start()
+		return counter_dash_state
 
 	return null
 
@@ -46,3 +55,7 @@ func process_physics(delta: float) -> State:
 
 func _on_dash_timer_timeout():
 	can_dash = true
+
+func _on_counter_dash_timer_timeout():
+	print("Here")
+	can_counter_dash = true

@@ -8,3 +8,6 @@ func wants_jump() -> bool:
 	
 func wants_dash() -> bool:
 	return Input.is_action_just_pressed("dash")
+
+func wants_counter_dash() -> bool:
+	return Input.is_action_just_pressed("counter_dash")
