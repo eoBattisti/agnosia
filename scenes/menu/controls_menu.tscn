@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5l45ccoif5c"]
+
+[ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="1_0sf0v"]
+[ext_resource type="Script" path="res://scripts/menus/controls_menu.gd" id="1_efgka"]
+
+[node name="ControlsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_efgka")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 57.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
