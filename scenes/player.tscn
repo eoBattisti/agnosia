@@ -227,6 +227,10 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBuffer" type="Timer" parent="MovementStateMachine"]
+wait_time = 0.1
+one_shot = true
+
 [node name="AttackStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_lxx7u")
 starting_state = NodePath("AttackIdleState")
