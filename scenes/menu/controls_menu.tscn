@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw5l45ccoif5c"]
+[gd_scene load_steps=4 format=3 uid="uid://dw5l45ccoif5c"]
 
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="1_0sf0v"]
 [ext_resource type="Script" path="res://scripts/menus/controls_menu.gd" id="1_efgka"]
+[ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_p8nov"]
 
 [node name="ControlsMenu" type="Control"]
 layout_mode = 3
@@ -22,5 +23,137 @@ offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
 text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -115.5
+offset_right = 202.0
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "A - D"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Walk
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "W - Space"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Jump"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "LShift"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Dash"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "K"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Counter Dash
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "J"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Attack
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "E"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = " -> Interact"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.344
+anchor_right = 0.5
+anchor_bottom = 0.344
+offset_left = -247.0
+offset_top = -103.912
+offset_right = 165.0
+offset_bottom = -48.912
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_p8nov")
+theme_override_font_sizes/font_size = 54
+text = "Controls"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
