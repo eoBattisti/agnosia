@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds82hkii87stp"]
+
+[ext_resource type="Script" path="res://scripts/audio/volume_slider.gd" id="1_7d13v"]
+
+[node name="VolumeSlider" type="HSlider"]
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_7d13v")

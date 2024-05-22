@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 InteractionManager="*res://scenes/interection/interaction_manager.tscn"
 DialogManager="*res://scripts/dialog_manager.gd"
+GlobalManager="*res://scripts/game_manager.gd"
 
 [input]
 
