@@ -55,6 +55,7 @@ size = Vector2(12, 13)
 
 [node name="Slime" type="CharacterBody2D" groups=["Hit"]]
 position = Vector2(-1, -12)
+collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_ustuc")
 
@@ -76,15 +77,16 @@ target_position = Vector2(0, 19)
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(37, 0)
-collision_mask = 2
+collision_mask = 4
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(-30, 0)
-collision_mask = 2
+collision_mask = 4
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_klr71")]
-collision_mask = 2
+collision_layer = 7
+collision_mask = 6
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

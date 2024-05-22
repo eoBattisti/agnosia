@@ -30,6 +30,7 @@ sprite_frames = SubResource("SpriteFrames_opjyy")
 frame_progress = 0.0299077
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_sm0qa")]
+collision_mask = 4
 action_name = "talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
