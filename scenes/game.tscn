@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh1v8lh28mb2x"]
+[gd_scene load_steps=16 format=3 uid="uid://bh1v8lh28mb2x"]
 
 [ext_resource type="Texture2D" uid="uid://bxo2dqk0ws4yd" path="res://assets/sprites/ground_tileset.png" id="1_537dr"]
+[ext_resource type="PackedScene" uid="uid://b3sjvojrq53px" path="res://scenes/menu/pause_menu.tscn" id="1_jo6w7"]
 [ext_resource type="PackedScene" uid="uid://do02vru1yvk4e" path="res://scenes/player.tscn" id="1_mfs54"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_o5edw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_xooxb"]
 [ext_resource type="PackedScene" uid="uid://chcfwmd6b8d6" path="res://scenes/platform.tscn" id="3_0i5nj"]
 [ext_resource type="PackedScene" uid="uid://dql5wf4vm6q2x" path="res://scenes/killzone.tscn" id="5_fii0c"]
@@ -141,6 +143,7 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_o5edw")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -165,6 +168,19 @@ position = Vector2(0, -33)
 zoom = Vector2(4, 4)
 limit_bottom = 270
 position_smoothing_enabled = true
+
+[node name="PauseMenu" parent="TileMap/Player/Camera2D" instance=ExtResource("1_jo6w7")]
+visible = false
+z_index = 100
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -49.0
+offset_top = -27.0
+offset_right = -49.0
+offset_bottom = -27.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Enemys" type="Node2D" parent="TileMap"]
 position = Vector2(1, -156)

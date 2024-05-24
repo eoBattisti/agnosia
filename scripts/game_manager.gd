@@ -11,7 +11,6 @@ var score = 0
 var dialog_file: Dictionary
 var language: String
 
-
 func _ready():
 	dialog_file = load_dialogs_file()
 	language = LocalizationEnum.keys()[language_choice]
