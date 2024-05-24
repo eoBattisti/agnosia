@@ -8,7 +8,6 @@ class_name FallState
 @export var wall_friction: float = 0
 @export var wall_jump_time: float = 0.5
 @onready var coyote_timer = $"../CoyoteTimer"
-@onready var jump_buffer = $"../JumpBuffer"
 
 var can_jump = true
 var wall_jump_timer: float
@@ -22,8 +21,7 @@ func process_input(event: InputEvent) -> State:
 	
 	if !coyote_timer.is_stopped() and get_jump():
 		jump_state.enter()
-	else:
-		jump_buffer.start()
+
 	return null
 
 func process_physics(delta: float) -> State:
@@ -43,10 +41,6 @@ func process_physics(delta: float) -> State:
 			jump_state.enter()
 		else:
 			parent.velocity.y = min(parent.velocity.y, wall_friction)
-
-	if parent.is_on_floor() and !jump_buffer.is_stopped():
-		jump_buffer.stop()
-		jump_state.enter()
 
 	if parent.is_on_floor():
 		if movement != 0:
