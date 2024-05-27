@@ -5,6 +5,7 @@ extends Node
 @export var raycast_left: RayCast2D
 @export var raycast_down_left: RayCast2D
 @export var raycast_down_right: RayCast2D
+@export var knockback_force: int = 500
 
 var direction: float
 var last_direction: float

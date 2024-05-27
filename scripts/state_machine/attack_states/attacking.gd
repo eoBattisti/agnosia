@@ -32,6 +32,7 @@ func process_damage(area: Area2D) -> void:
 		var enemy = area.get_parent()
 		if enemy is Enemy:
 			enemy.friendly = false
+			enemy.enemy_hurt.emit()
 		var attack = Attack.new()
 		attack.damage = 1
 		area.damage(attack)

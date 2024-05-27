@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd26p8oeb2cbu"]
+[gd_scene load_steps=20 format=3 uid="uid://cd26p8oeb2cbu"]
 
 [ext_resource type="Texture2D" uid="uid://bcusldysg077v" path="res://assets/sprites/slime_green.png" id="1_f6xwo"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ustuc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/components/enemy_move_component.gd" id="7_ddeqj"]
 [ext_resource type="Script" path="res://scripts/state_machine/enemy_states/move.gd" id="7_n6plv"]
 [ext_resource type="Script" path="res://scripts/state_machine/enemy_states/wander.gd" id="8_k7exv"]
+[ext_resource type="Script" path="res://scripts/state_machine/enemy_states/hurt.gd" id="9_1b78w"]
 [ext_resource type="PackedScene" uid="uid://c8xqril2724ic" path="res://scenes/healthbar/healthbar.tscn" id="10_f4exj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tbwn"]
@@ -26,6 +27,10 @@ region = Rect2(48, 24, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uw28"]
 atlas = ExtResource("1_f6xwo")
 region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6asqc"]
+atlas = ExtResource("1_f6xwo")
+region = Rect2(48, 54, 24, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pb6c6"]
 animations = [{
@@ -45,6 +50,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6asqc")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30nfx"]
@@ -62,9 +75,8 @@ script = ExtResource("1_ustuc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_pb6c6")
+animation = &"hurt"
 autoplay = "default"
-frame = 3
-frame_progress = 0.629232
 
 [node name="RayCastDownRight" type="RayCast2D" parent="."]
 position = Vector2(7, -1)
@@ -95,7 +107,7 @@ shape = SubResource("RectangleShape2D_30nfx")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_qd8id")]
-MAX_HEALTH = 2.0
+MAX_HEALTH = 30.0
 
 [node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("5_wuda5")
@@ -121,6 +133,11 @@ move_state = NodePath("../EnemyMoveState")
 animation_name = "default"
 move_speed = 50.0
 
+[node name="EnemyHurtState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("9_1b78w")
+idle_state = NodePath("../EnemyIdleState")
+animation_name = "hurt"
+
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "raycast_right", "raycast_left", "raycast_down_left", "raycast_down_right")]
 script = ExtResource("7_ddeqj")
 enemy = NodePath("..")
@@ -138,3 +155,5 @@ offset_left = -9.0
 offset_top = -6.0
 offset_right = 10.0
 offset_bottom = -4.0
+
+[connection signal="enemy_hurt" from="." to="." method="_on_enemy_hurt"]

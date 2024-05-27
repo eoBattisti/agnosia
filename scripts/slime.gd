@@ -9,7 +9,9 @@ class_name Enemy
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var movement_state_machine = $MovementStateMachine
 @onready var move_component = $MoveComponent
+@onready var enemy_hurt_state = $MovementStateMachine/EnemyHurtState
 
+signal enemy_hurt
 
 func _ready() -> void:
 	movement_state_machine.init(self, animated_sprite, move_component)
@@ -22,3 +24,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float):
 	movement_state_machine.process_frame(delta)
+
+func _on_enemy_hurt():
+	movement_state_machine.change_state(enemy_hurt_state)
