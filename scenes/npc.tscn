@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqo1oacb460bo"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_55xvh"]
-[ext_resource type="Texture2D" uid="uid://yu8uu01vbd3b" path="res://assets/sprites/characters.png" id="2_8qak6"]
+[ext_resource type="Texture2D" uid="uid://0tey73kqwitu" path="res://assets/sprites/characters_1.png" id="2_mdsvf"]
 [ext_resource type="PackedScene" uid="uid://brcseoexl33vc" path="res://scenes/interection/interaction_area.tscn" id="2_sm0qa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j51kk"]
-atlas = ExtResource("2_8qak6")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6hg8"]
+atlas = ExtResource("2_mdsvf")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opjyy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j51kk")
+"texture": SubResource("AtlasTexture_s6hg8")
 }],
 "loop": true,
 "name": &"default",
@@ -26,6 +26,7 @@ radius = 38.0132
 script = ExtResource("1_55xvh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_opjyy")
 frame_progress = 0.0299077
 

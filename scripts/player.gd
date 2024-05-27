@@ -23,5 +23,6 @@ func _physics_process(delta: float) -> void:
 	attack_state_machine.process_physics(delta)
 
 func _process(delta: float):
+	#print(movement_state_machine.current_state)
 	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
