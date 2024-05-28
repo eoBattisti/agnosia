@@ -1,28 +1,28 @@
 {
   "version": 0,
   "0": { 
-    "en": [
-      "Hey there, nice too met you",
-      "Before you discover our history...",
-      "Let's see if you are capable",
-      "Follow along the path.",
-      "You may or may not wanna defeat the enemies."
-    ],
-    "pt": [
-      "Olá, como posso te ajudar?",
-      "Antes de descobrir nossa história..",
-    ]
+	"en": [
+	  "Hey there, nice too met you",
+	  "Before you discover our history...",
+	  "Let's see if you are capable",
+	  "Follow along the path.",
+	  "You may or may not wanna defeat the enemies."
+	],
+	"pt": [
+	  "Olá, como posso te ajudar?",
+	  "Antes de descobrir nossa história..",
+	]
   },
   "1": {
-    "en": [],
-    "pt": []
+	"en": [],
+	"pt": []
   },
   "2": {
-    "en": [],
-    "pt": []
+	"en": [],
+	"pt": []
   },
   "3": {
-    "en": [],
-    "pt": []
+	"en": [],
+	"pt": []
   }
 }
