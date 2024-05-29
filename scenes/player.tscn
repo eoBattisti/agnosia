@@ -283,7 +283,7 @@ frame_progress = 1.0
 [node name="movement_animations" type="AnimatedSprite2D" parent="." groups=["player"]]
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_7sspm")
-animation = &"dash"
+animation = &"slide"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]

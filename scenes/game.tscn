@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh1v8lh28mb2x"]
+[gd_scene load_steps=18 format=3 uid="uid://bh1v8lh28mb2x"]
 
 [ext_resource type="Texture2D" uid="uid://bxo2dqk0ws4yd" path="res://assets/sprites/ground_tileset.png" id="1_537dr"]
 [ext_resource type="PackedScene" uid="uid://b3sjvojrq53px" path="res://scenes/menu/pause_menu.tscn" id="1_jo6w7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cd26p8oeb2cbu" path="res://scenes/slime.tscn" id="6_6t3mv"]
 [ext_resource type="PackedScene" uid="uid://cqo1oacb460bo" path="res://scenes/npc.tscn" id="8_yqhpb"]
 [ext_resource type="PackedScene" uid="uid://gn7ahmp6vwqw" path="res://scenes/interection/checkpoint.tscn" id="10_5t4xd"]
+[ext_resource type="PackedScene" uid="uid://bak4jrkudaefp" path="res://scenes/bear.tscn" id="11_ofd0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in8ju"]
 texture = ExtResource("1_537dr")
@@ -199,7 +200,7 @@ layer_1/tile_data = PackedInt32Array(196610, 262144, 268435458, 196611, 0, 0, 19
 position = Vector2(-64, 56)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_mfs54")]
-position = Vector2(-123, 64)
+position = Vector2(-297, -272)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 position = Vector2(0, -33)
@@ -366,3 +367,6 @@ position = Vector2(1454, -206)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("10_5t4xd")]
 position = Vector2(723, 210)
+
+[node name="Bear" parent="." instance=ExtResource("11_ofd0k")]
+position = Vector2(-234, -117)

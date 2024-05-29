@@ -57,5 +57,4 @@ func _on_dash_timer_timeout():
 	can_dash = true
 
 func _on_counter_dash_timer_timeout():
-	print("Here")
 	can_counter_dash = true

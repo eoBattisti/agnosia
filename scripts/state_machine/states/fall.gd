@@ -29,7 +29,7 @@ func process_physics(delta: float) -> State:
 			animations.flip_h = true
 		elif  movement > 0:
 			animations.flip_h = false
-
+	
 	parent.velocity.x = movement
 	parent.move_and_slide()
 
