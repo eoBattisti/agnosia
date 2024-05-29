@@ -134,6 +134,22 @@ theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
 text = "UI_INTERACT_DESCRIPTION"
 
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controles" type="Label" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "I ->"
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 24
+text = "UI_TOGGLE_HODDIE_DESCRIPTION"
+
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
