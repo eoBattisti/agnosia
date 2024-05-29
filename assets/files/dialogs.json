@@ -2,7 +2,7 @@
   "version": 0,
   "0": { 
 	"en": [
-	  "Hey there, nice too met you",
+	  "Hey there, nice too meet you",
 	  "Before you discover our history...",
 	  "Let's see if you are capable",
 	  "Follow along the path.",
@@ -11,6 +11,10 @@
 	"pt": [
 	  "Olá, como posso te ajudar?",
 	  "Antes de descobrir nossa história..",
+    "Vamos ver se você tem capacidade",
+    "Siga o caminho.",
+    "Você pode ou não querer derrotar os inimigos."
+
 	]
   },
   "1": {
