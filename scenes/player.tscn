@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://do02vru1yvk4e"]
+[gd_scene load_steps=42 format=3 uid="uid://do02vru1yvk4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gkaw5"]
 [ext_resource type="Texture2D" uid="uid://yu8uu01vbd3b" path="res://assets/sprites/characters.png" id="3_6plnn"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine/attack_states/charging.gd" id="10_p7tog"]
 [ext_resource type="Script" path="res://scripts/state_machine/attack_states/idle.gd" id="11_e2iet"]
 [ext_resource type="Script" path="res://scripts/state_machine/states/slide.gd" id="11_sx1u6"]
+[ext_resource type="Script" path="res://scripts/state_machine/states/rest.gd" id="12_jkgve"]
 [ext_resource type="PackedScene" uid="uid://bsk8ktwt7tfmo" path="res://scenes/health_component.tscn" id="13_ecdgj"]
 [ext_resource type="PackedScene" uid="uid://dfyin3u4fphgu" path="res://scenes/hitbox_component.tscn" id="14_ueg6c"]
 [ext_resource type="PackedScene" uid="uid://qmjrnchw3hcr" path="res://scenes/attack_hitbox.tscn" id="15_5x2qa"]
@@ -88,24 +89,17 @@ region = Rect2(32, 128, 32, 32)
 atlas = ExtResource("3_x08cy")
 region = Rect2(0, 128, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bydth"]
-load_path = "res://.godot/imported/characters_1.png-39fc2214f406e36d1a3b676fc74954c0.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4icfe"]
-atlas = SubResource("CompressedTexture2D_bydth")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_04ijt"]
-atlas = SubResource("CompressedTexture2D_bydth")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqsnu"]
-atlas = ExtResource("3_x08cy")
-region = Rect2(96, 128, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_clbvm"]
 atlas = ExtResource("3_x08cy")
 region = Rect2(224, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tknh3"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pogp0"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(160, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwe8f"]
 atlas = ExtResource("3_x08cy")
@@ -159,22 +153,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_uf6pr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4icfe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_04ijt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqsnu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqsnu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_04ijt")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_36jv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf6pr")
 }],
 "loop": true,
 "name": &"idle",
@@ -186,6 +168,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tknh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pogp0")
+}],
+"loop": true,
+"name": &"rest",
 "speed": 1.0
 }, {
 "frames": [{
@@ -247,8 +240,6 @@ position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_7sspm")
 animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.73213
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0.5, -7.5)
@@ -258,12 +249,14 @@ shape = SubResource("RectangleShape2D_s7tik")
 script = ExtResource("3_lxx7u")
 starting_state = NodePath("IdleState")
 
-[node name="IdleState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("dash_state", "fall_state", "jump_state", "move_state")]
+[node name="IdleState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("dash_state", "fall_state", "jump_state", "move_state", "rest_state")]
 script = ExtResource("4_xc01r")
 dash_state = NodePath("../DashState")
 fall_state = NodePath("../FallState")
 jump_state = NodePath("../JumpState")
 move_state = NodePath("../MoveState")
+rest_state = NodePath("../RestState")
+time_to_rest = 5.0
 animation_name = "idle"
 move_speed = 100.0
 
@@ -318,6 +311,12 @@ jump_state = NodePath("../JumpState")
 fall_state = NodePath("../FallState")
 wall_friction = 100.0
 animation_name = "slide"
+
+[node name="RestState" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("jump_state", "move_state")]
+script = ExtResource("12_jkgve")
+jump_state = NodePath("../JumpState")
+move_state = NodePath("../MoveState")
+animation_name = "rest"
 
 [node name="DashTimer" type="Timer" parent="MovementStateMachine"]
 one_shot = true
