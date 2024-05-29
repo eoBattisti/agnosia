@@ -30,7 +30,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_lnocd")
 theme_override_font_sizes/font_size = 54
-text = "Créditos"
+text = "UI_CREDITS_TITLE"
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 20.0
@@ -39,7 +39,7 @@ offset_right = 112.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("2_cbxrr")
 theme_override_font_sizes/font_size = 24
-text = "Back"
+text = "UI_BACK_BUTTON"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

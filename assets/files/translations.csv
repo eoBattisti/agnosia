@@ -1,0 +1,22 @@
+key,en,pt
+UI_START_BUTTON,Start,Jogar
+UI_CONTROLS_BUTTON,Controls,Controles
+UI_OPTIONS_BUTTON,Options,Opções
+UI_CREDITS_BUTTON,Crédits,Créditos
+UI_QUIT_BUTTON,Quit,Sair
+UI_CONTROLS_TITLE,Controls, Controles
+UI_WALK_DESCRIPTION,Walk,Andar
+UI_JUMP_DESCRIPTION,Jump,Pular
+UI_DASH_DESCRIPTION,Dash,Impulso frontal
+UI_COUNTER_DASH_DESCRIPTION,Counter Dash,Impulso reverso
+UI_ATTACK_DESCRIPTION,Attack,Ataque
+UI_INTERACT_DESCRIPTION,Interact,Interagir
+UI_OPTIONS_TITLE,Options,Opções
+UI_OPTIONS_LANGUAGE_LABEL,Language,Idioma
+UI_OPTIONS_MASTER_VOLUME_LABEL,Master Volume,Volume geral
+UI_OPTIONS_SFX_VOLUME_LABEL,SFX,Efeitos Sonoros
+UI_OPTIONS_MUSIC_VOLUME_LABEL,Music,Música
+UI_CREDITS_TITLE,Credits,Créditos
+UI_RESUME_BUTTON,Resume,Retomar
+UI_BACK_BUTTON,Back,Voltar
+

@@ -22,7 +22,7 @@ offset_right = 57.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "Back"
+text = "UI_BACK_BUTTON"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -46,14 +46,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "A - D"
+text = "A - D ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Walk
-"
+text = "UI_WALK_DESCRIPTION"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -63,13 +62,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "W - Space"
+text = "W - Space ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Jump"
+text = "UI_JUMP_DESCRIPTION"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -79,13 +78,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "LShift"
+text = "LShift ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Dash"
+text = "UI_DASH_DESCRIPTION"
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -95,14 +94,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "K"
+text = "K ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Counter Dash
-"
+text = "UI_COUNTER_DASH_DESCRIPTION"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -112,14 +110,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "J"
+text = "J ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Attack
-"
+text = "UI_ATTACK_DESCRIPTION"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -129,13 +126,13 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = "E"
+text = "E ->"
 
 [node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
-text = " -> Interact"
+text = "UI_INTERACT_DESCRIPTION"
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -154,6 +151,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_p8nov")
 theme_override_font_sizes/font_size = 54
-text = "Controls"
+text = "UI_CONTROLS_TITLE"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]

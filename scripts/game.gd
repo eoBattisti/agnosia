@@ -4,6 +4,8 @@ extends Node2D
 
 var paused: bool = false
 
+func _ready():
+	TranslationServer.set_locale(GlobalManager.language)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
