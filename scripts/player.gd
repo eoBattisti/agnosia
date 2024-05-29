@@ -11,6 +11,7 @@ class_name Player
 
 
 func _ready() -> void:
+	GlobalManager.player = self
 	movement_state_machine.init(self, movement_animations, move_component)
 	attack_state_machine.init(self, attack_animations, move_component)
 
@@ -23,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	attack_state_machine.process_physics(delta)
 
 func _process(delta: float):
-	#print(movement_state_machine.current_state)
-	movement_state_machine.process_frame(delta)
 	attack_state_machine.process_frame(delta)
+	movement_state_machine.process_frame(delta)
+
+func die():
+	GlobalManager.respawn_player()

@@ -11,6 +11,9 @@ var score = 0
 var dialog_file: Dictionary
 var language: String
 
+var current_checkpoint: Checkpoint
+var player: Player
+
 func _ready():
 	dialog_file = load_dialogs_file()
 	language = LocalizationEnum.keys()[language_choice]
@@ -30,3 +33,8 @@ func load_dialogs_file() -> Dictionary:
 
 func get_npcs_dialog_lines(npc: String) -> Array:
 	return dialog_file.get(npc).get(language)
+	
+func respawn_player() -> void:
+	if current_checkpoint != null:
+		player.global_position = current_checkpoint.global_position
+
