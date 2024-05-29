@@ -31,6 +31,8 @@ func get_movement_input() -> float:
 func get_jump() -> bool:
 	return move_component.wants_jump()
 
+func get_hide() -> bool:
+	return move_component.wants_hide()
 
 func get_dash() -> bool:
 	return move_component.wants_dash()

@@ -16,6 +16,12 @@ func enter() -> void:
 	_rest_timer = time_to_rest
 
 func process_input(event: InputEvent) -> State:
+	if get_hide():
+		if animations.animation == 'hide':
+			animations.play("unhide")
+		else:
+			animations.play("hide")
+		
 	if get_jump() and parent.is_on_floor():
 		return jump_state
 	if get_movement_input() != 0:

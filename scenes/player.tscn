@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://do02vru1yvk4e"]
+[gd_scene load_steps=47 format=3 uid="uid://do02vru1yvk4e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_gkaw5"]
 [ext_resource type="Texture2D" uid="uid://yu8uu01vbd3b" path="res://assets/sprites/characters.png" id="3_6plnn"]
@@ -77,6 +77,14 @@ region = Rect2(224, 128, 32, 32)
 atlas = ExtResource("3_x08cy")
 region = Rect2(256, 128, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_butl1"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hntsh"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(96, 128, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7aoa"]
 atlas = ExtResource("3_6plnn")
 region = Rect2(64, 64, 32, 32)
@@ -121,6 +129,18 @@ region = Rect2(288, 128, 32, 32)
 atlas = ExtResource("3_x08cy")
 region = Rect2(352, 128, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qk8n"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h31u1"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrsef"]
+atlas = ExtResource("3_x08cy")
+region = Rect2(0, 128, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sspm"]
 animations = [{
 "frames": [{
@@ -136,6 +156,17 @@ animations = [{
 "loop": true,
 "name": &"dash",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_butl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hntsh")
+}],
+"loop": false,
+"name": &"hide",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -179,7 +210,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"rest",
-"speed": 1.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +227,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,6 +241,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"slide",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qk8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h31u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrsef")
+}],
+"loop": false,
+"name": &"unhide",
 "speed": 3.0
 }]
 
@@ -238,7 +283,7 @@ frame_progress = 1.0
 [node name="movement_animations" type="AnimatedSprite2D" parent="." groups=["player"]]
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_7sspm")
-animation = &"idle"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]

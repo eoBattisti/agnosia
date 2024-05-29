@@ -11,3 +11,6 @@ func wants_dash() -> bool:
 
 func wants_counter_dash() -> bool:
 	return Input.is_action_just_pressed("counter_dash")
+
+func wants_hide() -> bool:
+	return Input.is_action_just_pressed("hide")
