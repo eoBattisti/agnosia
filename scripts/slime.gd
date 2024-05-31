@@ -11,14 +11,13 @@ class_name Enemy
 @onready var move_component = $MoveComponent
 @onready var enemy_hurt_state = $MovementStateMachine/EnemyHurtState
 @onready var attack_state_machine = $AttackStateMachine
-@onready var attack_animations = $AttackAnimations
 
 signal enemy_hurt
 
 func _ready() -> void:
 	movement_state_machine.init(self, animated_sprite, move_component)
 	if attack_state_machine != null:
-		attack_state_machine.init(self, attack_animations, move_component)
+		attack_state_machine.init(self, animated_sprite, move_component)
 
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)

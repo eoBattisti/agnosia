@@ -18,4 +18,8 @@ func damage(attack: Attack):
 		healthbar.health = health
 
 	if health <= 0:
-		get_parent().queue_free()
+		var parent = get_parent()
+		if parent is Player:
+			GlobalManager.respawn_player()
+		else:
+			parent.queue_free()
