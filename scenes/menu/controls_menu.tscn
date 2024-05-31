@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw5l45ccoif5c"]
+[gd_scene load_steps=12 format=3 uid="uid://dw5l45ccoif5c"]
 
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="1_0sf0v"]
 [ext_resource type="Script" path="res://scripts/menus/controls_menu.gd" id="1_efgka"]
 [ext_resource type="Texture2D" uid="uid://b3mf81fgf2u8n" path="res://assets/sprites/cenario_inicial.png" id="2_48d2s"]
 [ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_p8nov"]
+[ext_resource type="Texture2D" uid="uid://boddt3ptaih2o" path="res://assets/sprites/controls/jump.png" id="5_2ha0s"]
+[ext_resource type="Texture2D" uid="uid://bt3ywh6sq37a4" path="res://assets/sprites/controls/movement.png" id="5_dviv2"]
+[ext_resource type="Texture2D" uid="uid://bib0uoxq8jjad" path="res://assets/sprites/controls/dash.png" id="7_u2h7p"]
+[ext_resource type="Texture2D" uid="uid://dx5tyqc0j8sxg" path="res://assets/sprites/controls/counter_dash.png" id="8_60ptn"]
+[ext_resource type="Texture2D" uid="uid://dkfpced6v73qc" path="res://assets/sprites/controls/attack.png" id="9_jrhfc"]
+[ext_resource type="Texture2D" uid="uid://bndvly2hxlqu6" path="res://assets/sprites/controls/interecat.png" id="10_xrnci"]
+[ext_resource type="Texture2D" uid="uid://c3wi6uiew11jh" path="res://assets/sprites/controls/toggle_hodie.png" id="11_rrjbq"]
 
 [node name="ControlsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -44,141 +55,125 @@ theme_override_fonts/font = ExtResource("1_0sf0v")
 theme_override_font_sizes/font_size = 24
 text = "UI_BACK_BUTTON"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -426.0
-offset_top = -125.5
-offset_right = 426.0
-offset_bottom = 125.5
+offset_left = -268.0
+offset_top = -188.0
+offset_right = 116.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.66791, 2.46915)
 
-[node name="Title" type="Label" parent="VBoxContainer2"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_p8nov")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 24
 text = "UI_CONTROLS_TITLE"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_2ha0s")
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "A - D ->"
-
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "UI_WALK_DESCRIPTION"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "W - Space ->"
-
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "UI_JUMP_DESCRIPTION"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "LShift ->"
+texture = ExtResource("5_dviv2")
 
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer4"]
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
+text = "UI_WALK_DESCRIPTION"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("7_u2h7p")
+
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0sf0v")
+theme_override_font_sizes/font_size = 16
 text = "UI_DASH_DESCRIPTION"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer6"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "K ->"
+texture = ExtResource("8_60ptn")
 
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer6"]
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "UI_COUNTER_DASH_DESCRIPTION"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "J ->"
+texture = ExtResource("9_jrhfc")
 
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer5"]
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "UI_ATTACK_DESCRIPTION"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer7"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "E ->"
+texture = ExtResource("10_xrnci")
 
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "UI_INTERACT_DESCRIPTION"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Controles" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer7"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer8"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
-text = "I ->"
+texture = ExtResource("11_rrjbq")
 
-[node name="Descrição" type="Label" parent="VBoxContainer2/VBoxContainer/HBoxContainer7"]
+[node name="Descrição" type="Label" parent="VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0sf0v")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "UI_TOGGLE_HODDIE_DESCRIPTION"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
