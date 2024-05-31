@@ -68,7 +68,7 @@ offset_right = 116.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.66791, 2.46915)
+scale = Vector2(2.06921, 2.03519)
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
