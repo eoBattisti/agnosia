@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b28b8owgf83pv"]
+[gd_scene load_steps=7 format=3 uid="uid://b28b8owgf83pv"]
 
 [ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_8y6gp"]
 [ext_resource type="Script" path="res://scripts/menus/options_menu.gd" id="1_pik1r"]
+[ext_resource type="Texture2D" uid="uid://b3mf81fgf2u8n" path="res://assets/sprites/cenario_inicial.png" id="2_6xdk3"]
 [ext_resource type="PackedScene" uid="uid://bhsurclgcnjuo" path="res://scenes/menu/ui/language_option.tscn" id="2_gfk5d"]
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="2_pvcph"]
 [ext_resource type="PackedScene" uid="uid://ds82hkii87stp" path="res://scenes/audio/volume_slider.tscn" id="4_gttao"]
@@ -15,55 +16,73 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pik1r")
 
-[node name="Title" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -196.0
-offset_top = 172.0
-offset_right = 589.0
-offset_bottom = 227.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("1_8y6gp")
-theme_override_font_sizes/font_size = 54
-text = "UI_OPTIONS_TITLE"
+grow_vertical = 2
+texture = ExtResource("2_6xdk3")
+stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.364706, 0.364706, 0.431373)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -75.0
-offset_right = 153.5
-offset_bottom = 75.0
+offset_left = -392.5
+offset_top = -104.5
+offset_right = 392.5
+offset_bottom = 104.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 32
 
-[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8y6gp")
+theme_override_font_sizes/font_size = 54
+text = "UI_OPTIONS_TITLE"
 
-[node name="Label" type="Label" parent="VBoxContainer/LanguageContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/LanguageContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_pvcph")
 theme_override_font_sizes/font_size = 16
 text = "UI_OPTIONS_LANGUAGE_LABEL"
 
-[node name="LanguageOption" parent="VBoxContainer/LanguageContainer" instance=ExtResource("2_gfk5d")]
+[node name="LanguageOption" parent="VBoxContainer2/VBoxContainer/LanguageContainer" instance=ExtResource("2_gfk5d")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="MasterVomueContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MasterVomueContainer" type="VBoxContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="VBoxContainer/MasterVomueContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/MasterVomueContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_pvcph")
@@ -71,15 +90,15 @@ theme_override_font_sizes/font_size = 16
 text = "UI_OPTIONS_MASTER_VOLUME_LABEL"
 horizontal_alignment = 3
 
-[node name="VolumeSlider" parent="VBoxContainer/MasterVomueContainer" instance=ExtResource("4_gttao")]
+[node name="VolumeSlider" parent="VBoxContainer2/VBoxContainer/MasterVomueContainer" instance=ExtResource("4_gttao")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="MusciVomueContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MusciVomueContainer" type="VBoxContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/MusciVomueContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/MusciVomueContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_pvcph")
@@ -87,15 +106,15 @@ theme_override_font_sizes/font_size = 16
 text = "UI_OPTIONS_MUSIC_VOLUME_LABEL"
 horizontal_alignment = 3
 
-[node name="VolumeSlider" parent="VBoxContainer/MusciVomueContainer" instance=ExtResource("4_gttao")]
+[node name="VolumeSlider" parent="VBoxContainer2/VBoxContainer/MusciVomueContainer" instance=ExtResource("4_gttao")]
 layout_mode = 2
 bus_name = "music"
 
-[node name="SFXVomueContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="SFXVomueContainer" type="VBoxContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/SFXVomueContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/SFXVomueContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_pvcph")
@@ -103,7 +122,7 @@ theme_override_font_sizes/font_size = 16
 text = "UI_OPTIONS_SFX_VOLUME_LABEL"
 horizontal_alignment = 3
 
-[node name="VolumeSlider" parent="VBoxContainer/SFXVomueContainer" instance=ExtResource("4_gttao")]
+[node name="VolumeSlider" parent="VBoxContainer2/VBoxContainer/SFXVomueContainer" instance=ExtResource("4_gttao")]
 layout_mode = 2
 bus_name = "sfx"
 
