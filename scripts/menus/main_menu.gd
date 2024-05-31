@@ -1,6 +1,7 @@
 extends Control
 
-@onready var start_button = $VBoxContainer/StartButton
+@onready var start_button = $VBoxContainer2/VBoxContainer/StartButton
+
 func _ready():
 	start_button.grab_focus()
 

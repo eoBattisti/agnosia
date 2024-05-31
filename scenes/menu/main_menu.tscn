@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2pwf4o2x6444"]
+[gd_scene load_steps=5 format=3 uid="uid://d2pwf4o2x6444"]
 
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="1_448gt"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_vd7qx"]
+[ext_resource type="Texture2D" uid="uid://b3mf81fgf2u8n" path="res://assets/sprites/cenario_inicial.png" id="2_7ia7b"]
 [ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_6ewq8"]
 
 [node name="MainMenu" type="Control"]
@@ -13,23 +14,54 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vd7qx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7ia7b")
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.364706, 0.364706, 0.431373)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -66.0
-offset_right = 105.0
-offset_bottom = 74.0
+offset_left = -184.0
+offset_top = -117.5
+offset_right = 184.0
+offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_6ewq8")
+theme_override_font_sizes/font_size = 54
+text = "Agnosia"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../ControlsMenu")
@@ -37,7 +69,7 @@ theme_override_fonts/font = ExtResource("1_448gt")
 theme_override_font_sizes/font_size = 24
 text = "UI_START_BUTTON"
 
-[node name="ControlsMenu" type="Button" parent="VBoxContainer"]
+[node name="ControlsMenu" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
@@ -45,7 +77,7 @@ theme_override_fonts/font = ExtResource("1_448gt")
 theme_override_font_sizes/font_size = 24
 text = "UI_CONTROLS_BUTTON"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../ControlsMenu")
 focus_neighbor_bottom = NodePath("../CreditsButton")
@@ -53,7 +85,7 @@ theme_override_fonts/font = ExtResource("1_448gt")
 theme_override_font_sizes/font_size = 24
 text = "UI_OPTIONS_BUTTON"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
@@ -61,7 +93,7 @@ theme_override_fonts/font = ExtResource("1_448gt")
 theme_override_font_sizes/font_size = 24
 text = "UI_CREDITS_BUTTON"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
@@ -69,27 +101,8 @@ theme_override_fonts/font = ExtResource("1_448gt")
 theme_override_font_sizes/font_size = 24
 text = "UI_QUIT_BUTTON"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.344
-anchor_right = 0.5
-anchor_bottom = 0.344
-offset_left = -188.0
-offset_top = -54.912
-offset_right = 177.0
-offset_bottom = 0.0879974
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("3_6ewq8")
-theme_override_font_sizes/font_size = 54
-text = "Agnosia"
-
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ControlsMenu" to="." method="_on_controls_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/ControlsMenu" to="." method="_on_controls_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
