@@ -74,8 +74,14 @@ scale = Vector2(2.66791, 2.46915)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/line_spacing = 2
 theme_override_fonts/font = ExtResource("3_p8nov")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "UI_CONTROLS_TITLE"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]

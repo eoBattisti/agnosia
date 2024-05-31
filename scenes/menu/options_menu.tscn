@@ -53,6 +53,12 @@ theme_override_constants/separation = 32
 [node name="Title" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_8y6gp")
 theme_override_font_sizes/font_size = 54
 text = "UI_OPTIONS_TITLE"
