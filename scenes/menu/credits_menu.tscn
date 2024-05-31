@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds4fa1fa7ohug"]
+[gd_scene load_steps=5 format=3 uid="uid://ds4fa1fa7ohug"]
 
 [ext_resource type="Script" path="res://scripts/menus/credits_menu.gd" id="1_ix03v"]
 [ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_lnocd"]
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="2_cbxrr"]
+[ext_resource type="Texture2D" uid="uid://b3mf81fgf2u8n" path="res://assets/sprites/cenario_inicial.png" id="2_x8h4o"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -13,24 +14,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ix03v")
 
-[node name="Title" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.344
-anchor_right = 0.5
-anchor_bottom = 0.344
-offset_left = -207.0
-offset_top = -100.912
-offset_right = 205.0
-offset_bottom = -45.912
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_x8h4o")
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.364706, 0.364706, 0.431373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.5
+offset_top = -93.0
+offset_right = 392.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_lnocd")
 theme_override_font_sizes/font_size = 54
 text = "UI_CREDITS_TITLE"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fabiano - Game Designer
+Mateus Casemiro - 2D Artist
+Mateus Ligino - 2D Artist
+Murilo Lemes - Level Designer
+Nicolas Battisti - Game Developer
+"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -41,25 +73,5 @@ offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("2_cbxrr")
 theme_override_font_sizes/font_size = 24
 text = "UI_BACK_BUTTON"
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -58.0
-offset_right = 144.0
-offset_bottom = 69.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Fabiano - Game Designer
-Mateus Casemiro - 2D Artist
-Mateus Ligino - 2D Artist
-Murilo Lemes - Level Designer
-Nicolas Battisti - Game Developer
-"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
