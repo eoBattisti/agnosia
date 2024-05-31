@@ -8,6 +8,8 @@ class_name Player
 @onready var move_component = $MoveComponent
 @onready var collision = $CollisionShape2D
 @onready var weapon_hitbox = $WeaponHitbox
+@onready var healthbar = $Healthbar
+@onready var health_component = $HealthComponent
 
 
 func _ready() -> void:
@@ -29,3 +31,4 @@ func _process(delta: float):
 
 func die():
 	GlobalManager.respawn_player()
+	healthbar.value = health_component.MAX_HEALTH
