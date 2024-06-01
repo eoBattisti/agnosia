@@ -2,6 +2,8 @@ extends Node
 
 @export var enemy: Enemy
 @export var raycast_right: RayCast2D
+@export var raycast_melee_attack_left: RayCast2D
+@export var raycast_melee_attack_right: RayCast2D
 @export var raycast_left: RayCast2D
 @export var raycast_down_left: RayCast2D
 @export var raycast_down_right: RayCast2D
@@ -9,6 +11,12 @@ extends Node
 
 var direction: float
 var last_direction: float
+
+func _player_in_melee_range_left() -> bool:
+	return raycast_melee_attack_left.is_colliding() and raycast_melee_attack_left.get_collider() is Player
+
+func _player_in_melee_range_right() -> bool:
+	return raycast_melee_attack_right.is_colliding() and raycast_melee_attack_right.get_collider() is Player
 
 func _detected_player_right() -> bool:
 	if enemy.friendly:

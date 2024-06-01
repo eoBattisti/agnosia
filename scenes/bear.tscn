@@ -72,7 +72,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -122,6 +122,17 @@ can_move = false
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(-21, -13)
 target_position = Vector2(-56, 0)
+collision_mask = 4
+
+[node name="MeleeRangeLeft" type="RayCast2D" parent="."]
+position = Vector2(-21, -13)
+target_position = Vector2(-17, 0)
+collision_mask = 4
+
+[node name="MeleeRangeRight" type="RayCast2D" parent="."]
+position = Vector2(19, -13)
+scale = Vector2(-1, -1)
+target_position = Vector2(-17, 0)
 collision_mask = 4
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -174,10 +185,12 @@ charging_state = NodePath("../EnemyChargingState")
 hitbox = NodePath("../../AttackHitbox")
 animation_name = "attack"
 
-[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "raycast_right", "raycast_left")]
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "raycast_right", "raycast_melee_attack_left", "raycast_melee_attack_right", "raycast_left")]
 script = ExtResource("5_8ekvo")
 enemy = NodePath("..")
 raycast_right = NodePath("../RayCastRight")
+raycast_melee_attack_left = NodePath("../MeleeRangeLeft")
+raycast_melee_attack_right = NodePath("../MeleeRangeRight")
 raycast_left = NodePath("../RayCastLeft")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_g5yhn")]

@@ -24,6 +24,8 @@ func process_physics(delta: float) -> State:
 func process_frame(delta: float) -> State:
 	if move_component._detected_player_right():
 		animations.flip_h = true
+		parent.attack_hitbox.scale = Vector2(-1, 1)
 	elif move_component._detected_player_left():
 		animations.flip_h = false
+		parent.attack_hitbox.scale = Vector2(1, 1)
 	return null

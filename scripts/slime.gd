@@ -11,6 +11,10 @@ class_name Enemy
 @onready var move_component = $MoveComponent
 @onready var enemy_hurt_state = $MovementStateMachine/EnemyHurtState
 @onready var attack_state_machine = $AttackStateMachine
+@onready var attack_hitbox = $AttackHitbox
+@onready var melee_range_left = $MeleeRangeLeft
+@onready var melee_range_right = $MeleeRangeRight
+
 
 signal enemy_hurt
 

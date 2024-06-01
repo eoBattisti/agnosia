@@ -19,7 +19,6 @@ func process_input(event: InputEvent) -> State:
 	if !parent.can_move:
 		if (move_component._detected_player_right()
 			or move_component._detected_player_left()):
-
 				return aware_state
 		return null
 
@@ -39,7 +38,7 @@ func process_physics(delta: float) -> State:
 
 func process_frame(delta: float) -> State:
 	# If the enemy can move, it change to the wander state to emulate a enemy's 
-	# natural movement from time to time. 
+	# natural movement from time to time.
 	if parent.can_move:
 		_wander_timer -= delta
 		if _wander_timer <= 0:

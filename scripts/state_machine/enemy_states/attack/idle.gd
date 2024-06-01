@@ -8,7 +8,7 @@ func enter() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
-	if !parent.friendly and move_component._detected_player_left():
+	if !parent.friendly and (move_component._player_in_melee_range_left() or move_component._player_in_melee_range_right()):
 		return attacking_state
 	return null
 	

@@ -200,7 +200,7 @@ layer_1/tile_data = PackedInt32Array(196610, 262144, 268435458, 196611, 0, 0, 19
 position = Vector2(-64, 56)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_mfs54")]
-position = Vector2(-297, -272)
+position = Vector2(90, -272)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 position = Vector2(0, -33)
@@ -240,7 +240,7 @@ position = Vector2(632, 47)
 position = Vector2(228, -80)
 
 [node name="Slime7" parent="TileMap/Enemys" instance=ExtResource("6_6t3mv")]
-position = Vector2(-141, -143)
+position = Vector2(38, -126)
 
 [node name="Slime3" parent="TileMap/Enemys" instance=ExtResource("6_6t3mv")]
 position = Vector2(788, 207)
@@ -369,4 +369,4 @@ position = Vector2(1454, -206)
 position = Vector2(723, 210)
 
 [node name="Bear" parent="." instance=ExtResource("11_ofd0k")]
-position = Vector2(-234, -117)
+position = Vector2(-124, -132)
