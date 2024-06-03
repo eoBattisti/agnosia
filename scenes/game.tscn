@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh1v8lh28mb2x"]
+[gd_scene load_steps=19 format=3 uid="uid://bh1v8lh28mb2x"]
 
 [ext_resource type="Texture2D" uid="uid://bxo2dqk0ws4yd" path="res://assets/sprites/ground_tileset.png" id="1_537dr"]
 [ext_resource type="PackedScene" uid="uid://b3sjvojrq53px" path="res://scenes/menu/pause_menu.tscn" id="1_jo6w7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo1oacb460bo" path="res://scenes/npc.tscn" id="8_yqhpb"]
 [ext_resource type="PackedScene" uid="uid://gn7ahmp6vwqw" path="res://scenes/interection/checkpoint.tscn" id="10_5t4xd"]
 [ext_resource type="FontFile" uid="uid://cub7kl652afbr" path="res://assets/fonts/PixelOperator8.ttf" id="11_xcshf"]
+[ext_resource type="AudioStream" uid="uid://juxu6kvm5axk" path="res://assets/music/Forest_Ambience.mp3" id="12_pscrw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in8ju"]
 texture = ExtResource("1_537dr")
@@ -1287,3 +1288,8 @@ theme_override_fonts/font = ExtResource("11_xcshf")
 theme_override_font_sizes/font_size = 32
 text = "Fin."
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pscrw")
+autoplay = true
+bus = &"music"

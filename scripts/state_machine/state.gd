@@ -3,15 +3,19 @@ class_name State
 
 @export var animation_name: String
 @export var move_speed: float = 400
+@export var sfx_resource: AudioStreamMP3
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var animations: AnimatedSprite2D
 var parent: CharacterBody2D
+var audio_player: AudioStreamPlayer
 var move_component
 
 func enter() -> void:
 	animations.play(animation_name)
+	audio_player.stream = sfx_resource
+	audio_player.play()
 
 func exit() -> void:
 	pass

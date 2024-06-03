@@ -7,12 +7,14 @@ var current_state: State
 func init(
 	parent: CharacterBody2D,
 	animations: AnimatedSprite2D,
+	audio_player: AudioStreamPlayer,
 	move_component
 ) -> void:
 	for child in get_children():
 		if child is State:
 			child.parent = parent
 			child.animations = animations
+			child.audio_player = audio_player
 			child.move_component = move_component
 
 	change_state(starting_state)

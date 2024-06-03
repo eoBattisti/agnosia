@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cki61st6nt74x"]
+
+[ext_resource type="AudioStream" uid="uid://18bcf1iti8rj" path="res://assets/music/forest.mp3" id="1_yift7"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer"]
+stream = ExtResource("1_yift7")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
