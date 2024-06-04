@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3bs88wl07il6"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_kfhfb"]
+[ext_resource type="Texture2D" uid="uid://0tey73kqwitu" path="res://assets/sprites/characters_1.png" id="2_pxsa2"]
+[ext_resource type="PackedScene" uid="uid://brcseoexl33vc" path="res://scenes/interection/interaction_area.tscn" id="3_4m2et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di7ag"]
+atlas = ExtResource("2_pxsa2")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7fd0"]
+atlas = ExtResource("2_pxsa2")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gexmn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di7ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7fd0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvngc"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ch6ak"]
+radius = 36.0
+
+[node name="Fruit" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kfhfb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gexmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_hvngc")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_4m2et")]
+action_name = "brake"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ch6ak")

@@ -7,7 +7,6 @@ var paused: bool = false
 func _ready():
 	TranslationServer.set_locale(GlobalManager.language)
 
-
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pause_game()

@@ -22,4 +22,5 @@ func damage(attack: Attack):
 		if parent is Player:
 			parent.die()
 		else:
+			GlobalManager.enemies_defeated += 1
 			parent.queue_free()

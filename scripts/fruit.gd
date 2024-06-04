@@ -12,3 +12,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _toggle():
 	sprite.frame += 1
+	GlobalManager.npcs_died += 1

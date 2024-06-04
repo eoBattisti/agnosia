@@ -33,43 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.364706, 0.364706, 0.364706, 0.431373)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -392.5
-offset_top = -93.0
-offset_right = 392.5
-offset_bottom = 93.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 4
-theme_override_constants/shadow_outline_size = 4
-theme_override_constants/line_spacing = 4
-theme_override_fonts/font = ExtResource("1_lnocd")
-theme_override_font_sizes/font_size = 54
-text = "UI_CREDITS_TITLE"
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Fabiano - Game Designer
-Mateus Casemiro - 2D Artist
-Mateus Ligino - 2D Artist
-Murilo Lemes - Level Designer
-Nicolas Battisti - Game Developer
-"
-
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 20.0
@@ -79,5 +42,149 @@ offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("2_cbxrr")
 theme_override_font_sizes/font_size = 24
 text = "UI_BACK_BUTTON"
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 285.0
+offset_right = 870.0
+offset_bottom = 293.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.556
+anchor_top = 0.008
+anchor_right = 0.556
+anchor_bottom = 0.008
+offset_left = -270.512
+offset_top = -0.184
+offset_right = 514.488
+offset_bottom = 54.816
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_lnocd")
+theme_override_font_sizes/font_size = 54
+text = "UI_CREDITS_TITLE"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -442.0
+offset_top = -202.0
+offset_right = 442.0
+offset_bottom = 443.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Game developers" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_lnocd")
+theme_override_font_sizes/font_size = 24
+text = "Game developers"
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_cbxrr")
+theme_override_font_sizes/font_size = 24
+text = "Fabiano - Game Designer
+Mateus Casemiro - 2D Artist
+Mateus Ligino - 2D Artist
+Murilo Lemes - Level Designer
+Nicolas Battisti - Game Developer
+"
+
+[node name="Testers" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_lnocd")
+theme_override_font_sizes/font_size = 24
+text = "Testers"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_cbxrr")
+theme_override_font_sizes/font_size = 24
+text = "Alessandra Martins
+Caio Meirelles
+Caique Côrrea
+Edu Fully
+Enzo Matsumoto
+Felipe Moreira
+Douglas de Carvalho
+Fernando Tosi
+Gabriel Oliveira Ramos Faria
+Helena Capel
+Jaime Faiman
+João Vitor Hagge
+Lucas Stahl
+Matheus de Souza Chantal
+Matheus de Paula B. Lacerda 
+Murilo Henrique dos Santos
+Vinicius Ney Soares Fan
+"
+
+[node name="Game developers3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_lnocd")
+theme_override_font_sizes/font_size = 24
+text = "Third Party Assets
+"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_cbxrr")
+theme_override_font_sizes/font_size = 24
+text = "Pixel Keyboard Keys - for UI - Dream Mix
+All American flags pixel art 16x16 - Lucasfdahl
+Pixel art Font - Jayvee Enaguas
+Slime Sprite - analogStudios_
+"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

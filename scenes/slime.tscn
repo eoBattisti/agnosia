@@ -156,4 +156,6 @@ offset_top = -6.0
 offset_right = 10.0
 offset_bottom = -4.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+
 [connection signal="enemy_hurt" from="." to="." method="_on_enemy_hurt"]

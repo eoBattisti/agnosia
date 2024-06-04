@@ -7,7 +7,6 @@ class_name JumpState
 @export var jump_state: State
 @export var slide_state: State
 
-
 @export var jump_force: float = 900.0
 
 func enter() -> void:

@@ -10,12 +10,13 @@ class_name Player
 @onready var weapon_hitbox = $WeaponHitbox
 @onready var healthbar = $Healthbar
 @onready var health_component = $HealthComponent
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 func _ready() -> void:
 	GlobalManager.player = self
-	movement_state_machine.init(self, movement_animations, move_component)
-	attack_state_machine.init(self, attack_animations, move_component)
+	movement_state_machine.init(self, movement_animations, audio_stream_player, move_component)
+	attack_state_machine.init(self, attack_animations, audio_stream_player, move_component)
 
 func _unhandled_input(event: InputEvent) -> void:
 	movement_state_machine.process_input(event)

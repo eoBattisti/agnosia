@@ -7,6 +7,8 @@ enum LocalizationEnum {
 
 @export var language_choice: LocalizationEnum
 
+var enemies_defeated = 0
+var npcs_died = 0
 var score = 0
 var dialog_file: Dictionary
 var language: String
