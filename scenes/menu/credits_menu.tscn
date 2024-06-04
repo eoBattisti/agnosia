@@ -108,13 +108,13 @@ theme_override_constants/shadow_outline_size = 4
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_lnocd")
 theme_override_font_sizes/font_size = 24
-text = "Game developers"
+text = "UI_CREDITS_DEVELOPERS_TITLE"
 
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_cbxrr")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "Fabiano - Game Designer
 Mateus Casemiro - 2D Artist
 Mateus Ligino - 2D Artist
@@ -134,13 +134,13 @@ theme_override_constants/shadow_outline_size = 4
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_lnocd")
 theme_override_font_sizes/font_size = 24
-text = "Testers"
+text = "UI_CREDITS_TESTERS_TITLE"
 
 [node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_cbxrr")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "Alessandra Martins
 Caio Meirelles
 Caique Côrrea
@@ -172,19 +172,46 @@ theme_override_constants/shadow_outline_size = 4
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_lnocd")
 theme_override_font_sizes/font_size = 24
-text = "Third Party Assets
-"
+text = "UI_CREDITS_OTHER_ASSETS_TITLE"
 
 [node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("2_cbxrr")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "Pixel Keyboard Keys - for UI - Dream Mix
 All American flags pixel art 16x16 - Lucasfdahl
 Pixel art Font - Jayvee Enaguas
 Slime Sprite - analogStudios_
 "
+
+[node name="Music" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_lnocd")
+theme_override_font_sizes/font_size = 24
+text = "UI_CREDITS_MUSIC_TITLE"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_cbxrr")
+theme_override_font_sizes/font_size = 16
+text = "MentalSanityOff
+Blender Foundation - Lamoot
+DaGameKnower
+marcelofg55
+CleytonKauffman
+TinyWorlds
+hectavex"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

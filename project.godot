@@ -23,6 +23,10 @@ DialogManager="*res://scripts/dialog_manager.gd"
 GlobalManager="*res://scripts/game_manager.gd"
 Music="*res://scenes/music.tscn"
 
+[display]
+
+window/size/mode=3
+
 [input]
 
 jump={

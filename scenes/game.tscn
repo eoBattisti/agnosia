@@ -1944,7 +1944,7 @@ layer_1/tile_data = PackedInt32Array(196610, 262144, 268435458, 196611, 0, 0, 19
 position = Vector2(-64, 56)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_mfs54")]
-position = Vector2(-7086, -2906)
+position = Vector2(-8462, -2865)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 position = Vector2(0, -23)
