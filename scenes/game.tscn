@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bh1v8lh28mb2x"]
+[gd_scene load_steps=30 format=3 uid="uid://bh1v8lh28mb2x"]
 
 [ext_resource type="Texture2D" uid="uid://bxo2dqk0ws4yd" path="res://assets/sprites/ground_tileset.png" id="1_537dr"]
 [ext_resource type="PackedScene" uid="uid://b3sjvojrq53px" path="res://scenes/menu/pause_menu.tscn" id="1_jo6w7"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo1oacb460bo" path="res://scenes/npc.tscn" id="8_yqhpb"]
 [ext_resource type="PackedScene" uid="uid://gn7ahmp6vwqw" path="res://scenes/interection/checkpoint.tscn" id="10_5t4xd"]
 [ext_resource type="PackedScene" uid="uid://qs2mgqkj5kvg" path="res://scenes/hitbox.tscn" id="13_nxwiv"]
+[ext_resource type="FontFile" uid="uid://dsc35l86gpsfu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_igrx1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in8ju"]
 resource_name = "<null>"
@@ -81,7 +82,7 @@ texture = ExtResource("1_537dr")
 9:11/0 = 0
 9:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:11/0/physics_layer_0/angular_velocity = 0.0
-9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.96101, -8, 2.96101, -8, 3.0052, 8, -2.96101, 8)
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.875, -8, 5.875, -8, 5.875, 8, -4.875, 8)
 0:10/0 = 0
 0:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:10/0/physics_layer_0/angular_velocity = 0.0
@@ -1916,7 +1917,7 @@ size = Vector2(2251, 11)
 size = Vector2(1903, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ylhn"]
-size = Vector2(1577, 8)
+size = Vector2(1582, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sunba"]
 size = Vector2(555, 11)
@@ -2182,7 +2183,7 @@ shape = SubResource("RectangleShape2D_k4j16")
 position = Vector2(-5712, 1239)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Hitbox"]
-position = Vector2(767.5, 0)
+position = Vector2(770, 0)
 shape = SubResource("RectangleShape2D_2ylhn")
 
 [node name="Killzone5" parent="Killzones" instance=ExtResource("5_fii0c")]
@@ -2198,3 +2199,13 @@ position = Vector2(-5978, 1112)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/Killzone6"]
 position = Vector2(33, 1)
 shape = SubResource("RectangleShape2D_0h0w3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1096.0
+offset_top = -87.0
+offset_right = 1180.0
+offset_bottom = -63.0
+theme_override_fonts/font = ExtResource("14_igrx1")
+theme_override_font_sizes/font_size = 24
+text = "Fin.
+"
