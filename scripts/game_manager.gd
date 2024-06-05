@@ -34,6 +34,7 @@ func load_dialogs_file() -> Dictionary:
 	return JSON.parse_string(content_text)
 
 func get_npcs_dialog_lines(npc: String) -> Array:
+	print(npc)
 	return dialog_file.get(npc).get(language)
 	
 func respawn_player() -> void:

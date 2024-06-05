@@ -14,7 +14,7 @@ enum NpcEnum {
 var lines: Array
 
 func _ready():
-	lines = GlobalManager.get_npcs_dialog_lines(str(NpcEnum.Sold_a))
+	lines = GlobalManager.get_npcs_dialog_lines(str(npc_name))
 	interaction_area.interact = Callable(self, "_on_interact")
 
 
